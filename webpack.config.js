@@ -15,5 +15,19 @@ module.exports = {
     },
     plugins:[
         HtmlPlugin
-    ]
+    ],
+    module:{    //所有第三放 模块的配置规则
+        rules:[//第三方匹配规则
+            {
+                test:/\.js|jsx$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                      presets: ['@babel/preset-env','@babel/preset-react']
+                    }
+                  },
+                  exclude: /(node_modules|bower_components)/,
+            }//千万别忘记添加exclude 排除项
+        ]
+    }
 }
