@@ -9,7 +9,7 @@ const HtmlPlugin = new HtmlWebpackPlugin({
 //webpack 4.x的特性，约定大于配置，默认打包入口路径是 src-> index.js
 module.exports = {
     devServer:{
-        port:8000,
+        port:8080,
         progress:true,
         open:true
     },
@@ -26,8 +26,12 @@ module.exports = {
                       presets: ['@babel/preset-env','@babel/preset-react']
                     }
                   },
-                  exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules|bower_components)/,
             }//千万别忘记添加exclude 排除项
         ]
+    },
+    resolve:{
+        extensions:['.js','.jsx','.json']   //表示，这些文件的后缀名，可以是省略不写
     }
+
 }
