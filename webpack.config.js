@@ -23,7 +23,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                      presets: ['@babel/preset-env','@babel/preset-react']
+                      presets: ['@babel/preset-env','@babel/preset-react','@babel/plugin-proposal-class-properties']
                     }
                   },
                 exclude: /(node_modules|bower_components)/,
@@ -31,7 +31,10 @@ module.exports = {
         ]
     },
     resolve:{
-        extensions:['.js','.jsx','.json']   //表示，这些文件的后缀名，可以是省略不写
+        extensions:['.js','.jsx','.json'],   //表示，这些文件的后缀名，可以是省略不写
+        alias:{
+            '@':path.join(__dirname,'/src')
+        }
     }
 
 }
