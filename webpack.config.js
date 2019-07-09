@@ -23,7 +23,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                      presets: ['@babel/preset-env','@babel/preset-react','@babel/plugin-proposal-class-properties']
+                      presets: ['@babel/preset-env','@babel/preset-react']
                     }
                   },
                 exclude: /(node_modules|bower_components)/,
