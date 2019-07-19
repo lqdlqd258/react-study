@@ -27,7 +27,12 @@ module.exports = {
                     }
                   },
                 exclude: /(node_modules|bower_components)/,
-            }//千万别忘记添加exclude 排除项
+            },//千万别忘记添加exclude 排除项
+            {
+                test:/\.css$/,
+                //大家可以在 css-loader 之后，通过 ？ 追加参数 modules,为普通的css样式表，启用模块化
+                use:['style-loader','css-loader?modules']
+            }
         ]
     },
     resolve:{
