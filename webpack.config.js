@@ -11,7 +11,7 @@ module.exports = {
     devServer:{
         port:8080,
         progress:true,
-        open:true
+        // open:true
     },
     plugins:[
         HtmlPlugin
@@ -31,7 +31,25 @@ module.exports = {
             {
                 test:/\.css$/,
                 //大家可以在 css-loader 之后，通过 ？ 追加参数 modules,为普通的css样式表，启用模块化
-                use:['style-loader','css-loader?modules']
+                use:['style-loader','css-loader']
+            },
+            {
+                test:/\.ttf|woff|woff2|eot|svg$/,
+                use:'url-loader'
+            },
+            {
+                test:/\.scss$/,
+                use:['style-loader',{
+                    loader:'css-loader',
+                    options: {
+                    modules: {
+                            mode: 'local',
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            context: path.resolve(__dirname, 'src'),
+                            hashPrefix: 'my-custom-hash',
+                        },
+                    }
+                },'sass-loader']
             }
         ]
     },

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .outside{
+        display: flex;
+        width: 400px;
+        height: 400px;
+        background: #892BE1;
+        align-items: center;
+        justify-content: center;
+    }
+    .middle{
+        flex: none;
+        display: flex;
+        width: 300px;
+        height: 300px;
+        align-items: center;
+        justify-content: center;
+        background: #7FFFD4;
+    }
+    .inner{
+        flex: none;
+        width: 200px;
+        height: 200px;
+        background: #FF6247;
+    }
+</style>
+<body>
+    <div class="outside">
+        <div class="middle">
+            <div class="inner"></div>
+        </div>
+    </div>
+</body>
+<script>
+    onload = function(){
+        console.log('页面加载完成');
+        //#region
+        // document.getElementsByClassName("outside")[0].onclick = function(){
+        //     console.log('外面3');
+        // }
+        // document.getElementsByClassName('middle')[0].onclick =  function(){
+        //     console.log('中间2');
+        // }
+        // document.getElementsByClassName('inner')[0].onclick =  function(){
+        //     console.log('里面1');
+        // }
+        //#endregion
+        document.getElementsByClassName("outside")[0].addEventListener('click',function(){
+            console.log('外面3');
+        },true)
+        document.getElementsByClassName("middle")[0].addEventListener('click',function(){
+            console.log('中间2');
+        },true)
+        document.getElementsByClassName("inner")[0].addEventListener('click',function(){
+            console.log('里面1');
+        },true)
+       
+    }
+</script>
+</html>
