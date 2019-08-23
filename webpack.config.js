@@ -8,10 +8,17 @@ const HtmlPlugin = new HtmlWebpackPlugin({
 })
 //webpack 4.x的特性，约定大于配置，默认打包入口路径是 src-> index.js
 module.exports = {
+    mode:'development',
     devServer:{
+        // contentBase:'./dist', 
         port:8080,
         progress:true,
         // open:true
+        // publicPath:'/lalala/' //优先
+
+    },
+    performance: {
+        hints:false      
     },
     plugins:[
         HtmlPlugin
@@ -34,10 +41,12 @@ module.exports = {
                 use:['style-loader','css-loader']
             },
             {
+                //像图片一样处理字体文件
                 test:/\.ttf|woff|woff2|eot|svg$/,
                 use:'url-loader'
             },
             {
+                //只给scss启用模块化
                 test:/\.scss$/,
                 use:['style-loader',{
                     loader:'css-loader',
